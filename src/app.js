@@ -26,7 +26,7 @@ sequelize.authenticate()
         console.log("Erro ao conectar no banco: ", err);
     })
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 // Listen -> Ouvir
 // Ouvindo no possivel o na porta 3000
 app.listen(PORT, () => {
