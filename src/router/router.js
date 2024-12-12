@@ -5,7 +5,6 @@ const clienteRoutes = require("./clienteRotas")
 
 const router = Router();
 
-router.use('/user', userRoutes);
 router.use('/admin', adminRoutes);
 router.use('/cliente', clienteRoutes);
 
