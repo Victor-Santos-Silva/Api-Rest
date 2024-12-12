@@ -27,7 +27,7 @@ sequelize.authenticate()
     })
 
 const PORT = process.env.PORT || 3000;
-// Listen -> Ouvir
+// Listen -> Ouvir'
 // Ouvindo no possivel o na porta 3000
 app.listen(PORT, () => {
     console.log('---------------------------');

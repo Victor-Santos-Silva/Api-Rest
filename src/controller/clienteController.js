@@ -1,43 +1,43 @@
-const userService = require("../services/userService")
- 
-const userController = {
+const clienteService = require("../services/clienteService")
+
+const clienteController = {
     create: async (req, res) => {
-        try{
-            const user = await userService.create(req.body);
+        try {
+            const cliente = await clienteService.create(req.body);
             return res.status(201).json({
-                msg: 'Usuario criado com sucesso',
-                user
+                msg: 'Cliente criado com sucesso',
+                cliente
             })
         } catch (error) {
             return res.status(500).json({
-                msg: 'Erro ao tentar criar o usuario'
+                msg: 'Erro ao tentar criar o cliente'
             })
         }
     },
     update: async (req, res) => {
-        try{
-            const user = await userService.update(req.params.id, req.body);
-            if(!user) {
+        try {
+            const cliente = await clienteService.update(req.params.id, req.body);
+            if (!cliente) {
                 return res.status(400).json({
-                    msg: 'Usuario nao encontrado'
+                    msg: 'Cliente nao encontrado'
                 });
             }
             return res.status(200).json({
-                msg: 'Usuario atualizado com sucesso',
-                user
+                msg: 'Cliente atualizado com sucesso',
+                cliente
             });
-        } catch(error) {
+        } catch (error) {
             return res.status(500).json({
-                msg: 'Erro ao atualizar o usuario'
+                msg: 'Erro ao atualizar o cliente'
             })
         }
     },
     getAll: async (req, res) => {
-        try{
-            const users = await userService.getAll();
+        try {
+            const clientes = await clienteService.getAll();
             return res.status(200).json({
-                msg: 'Todos os usuarios!',
-                users
+                msg: 'Todos os clientes!',
+                clientes
             });
         } catch (error) {
             return res.status(200).json({
@@ -46,16 +46,16 @@ const userController = {
         }
     },
     getOne: async (req, res) => {
-        try{
-            const user = await userService.getById(req.params.id);
-            if(!user) {
+        try {
+            const cliente = await clienteService.getById(req.params.id);
+            if (!cliente) {
                 return res.status(400).json({
-                    msg: 'Usuario nao encontrado!'
+                    msg: 'Cliente nao encontrado!'
                 });
             }
             return res.status(200).json({
-                msg: 'Usuario encontrado',
-                user
+                msg: 'Cliente encontrado',
+                cliente
             });
         } catch (error) {
             return res.status(500).json({
@@ -64,15 +64,15 @@ const userController = {
         }
     },
     delete: async (req, res) => {
-        try{
-            const user = await userService.delete(req.params.id);
-            if(!user) {
+        try {
+            const cliente = await clienteService.delete(req.params.id);
+            if (!cliente) {
                 return res.status(400).json({
-                    msg: 'Usuario nao encontrado'
+                    msg: 'Cliente nao encontrado'
                 })
             }
             return res.status(200).json({
-                msg: 'Usuario deletado com sucesso!'
+                msg: 'Cliente deletado com sucesso!'
             });
         } catch (error) {
             return res.status(500).json({
@@ -81,5 +81,5 @@ const userController = {
         }
     }
 }
- 
-module.exports = userController;
+
+module.exports = clienteController;
