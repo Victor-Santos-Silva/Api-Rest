@@ -8,13 +8,13 @@ const clienteService = {
             throw new Error('Ocorreu um erro ao criar cliente');
         }
     },
-    update: async (id, userToUpdate) => {
+    update: async (id, clienteToUpdate) => {
         try {
             const cliente = await Cliente.findByPk(id);
             if (!cliente) { // user for vazio
                 return null;
             }
-            await cliente.update(userToUpdate); //update atualizar
+            await cliente.update(clienteToUpdate); //update atualizar
             await cliente.save(); // so para ter certeza que esta faltando, mas é opcioanl
             return cliente;
         } catch (error) {
