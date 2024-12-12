@@ -1,4 +1,5 @@
 const transacoesService = require("../services/transacoesService")
+const conta = require("../models/contas")
 
 const transacoesController = {
     create: async (req, res) => {
@@ -6,7 +7,7 @@ const transacoesController = {
             const transferencia = await transacoesService.create(req.body);
             return res.status(201).json({
                 msg: 'Transferencia feita com sucesso',
-                transferencia
+                transferencia,
             })
         } catch (error) {
             return res.status(500).json({
