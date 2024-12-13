@@ -1,5 +1,4 @@
 const transacoesService = require("../services/transacoesService")
-const conta = require("../models/contas")
 
 const transacoesController = {
     create: async (req, res) => {

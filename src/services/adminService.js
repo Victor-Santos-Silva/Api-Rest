@@ -4,11 +4,11 @@ const bcrypt = require('bcrypt')
 const adminService = {
     create: async (admin) => {
         try {
-            const { nome, senha, email } = admin;
-            
+            const { nome, senha, idade, email } = admin;
+
             const hashSenha = await bcrypt.hash(senha, 10);
 
-            return await Admin.create({ nome, email, senha: hashSenha });
+            return await Admin.create({ nome, email, idade, senha: hashSenha });
 
         } catch (error) {
             throw new Error("Ocorreu um erro ao criar Admin");
@@ -20,11 +20,11 @@ const adminService = {
             if (!admin) {
                 return null;
             }
-    
+
             if (admin.email !== email) {
                 return null;
             }
-    
+
             const hashSenha = await bcrypt.hash(novaSenha, 10);
             await admin.update({ senha: hashSenha });
             return admin;
